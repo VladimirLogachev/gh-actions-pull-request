@@ -1,5 +1,12 @@
 name: Print Summary
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request: 
+    types: 
+      - opened
+      - synchronize
 
 jobs:
   Print-Summary:
@@ -10,10 +17,3 @@ jobs:
       - run: echo "Repository ${{ github.repository }}"
       - run: echo "Event ${{ github.event_name }}"
       - run: echo "Branch ${{ github.ref }}"
-
-# merge_job:
-#   if: github.event.pull_request.merged == true
-#   runs-on: ubuntu-latest
-#   steps:
-#   - run: |
-#       echo PR #${{ github.event.number }} has been merged
