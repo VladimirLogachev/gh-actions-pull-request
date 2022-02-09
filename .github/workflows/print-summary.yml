@@ -1,0 +1,12 @@
+name: Print Summary
+on: [push, pull_request]
+
+jobs:
+  Print-Summary:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "======= EVERY PUSH ========"
+      - run: echo "OS ${{ runner.os }}"
+      - run: echo "Repository ${{ github.repository }}"
+      - run: echo "Event ${{ github.event_name }}"
+      - run: echo "Branch ${{ github.ref }}"
